@@ -1,8 +1,8 @@
 <?php
 $host = '127.0.0.1';
 $db   = 'expense-tracker';
-$user = 'root'; // Replace with your DB username
-$pass = '';     // Replace with your DB password
+$user = 'root'; 
+$pass = '';     
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
