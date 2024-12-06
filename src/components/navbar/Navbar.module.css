@@ -1,0 +1,144 @@
+.navbarContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3f51b5;
+    color: white;
+    padding: 0 20px;
+    height: 60px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+  
+  .leftSection {
+    display: flex;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: black; /* Updated color */
+  }
+  
+  .rightSection {
+    display: flex;
+    align-items: center;
+  }
+  
+  .refreshButton {
+    background-color: transparent;
+    border: none;
+    color: #cddc39;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+  }
+  
+  .refreshButton:hover {
+    opacity: 0.8;
+  }
+  
+  .sidebarToggleButton {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 60px; /* Below the navbar */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    padding: 20px;
+  }
+  
+  .sidebarHeader {
+    margin-bottom: 20px;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profileIcon {
+    background-color: #6c63ff;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .sidebarMenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .menuItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black; /* Added black border */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+    cursor: pointer;
+    color: black; /* Updated color */
+  }
+  
+  .menuItem:hover,
+  .menuItem.active {
+    background-color: #f0f0f0;
+  }
+  
+  .sidebarFooter {
+    margin-top: auto;
+  }
+  
+  .logoutButton {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .darkModeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
