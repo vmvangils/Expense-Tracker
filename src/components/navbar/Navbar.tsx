@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styles from './Navbar.module.css';
+import React, { useState } from "react";
+import styles from "./Navbar.module.css";
 
 const Navbar: React.FC = () => {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
@@ -16,42 +16,26 @@ const Navbar: React.FC = () => {
             className={styles.sidebarToggleButton}
             onClick={toggleSidebar}
           >
-            ☰
+            ☰{/*De ☰ NIET VERWIJDEREN DAT IS DE HAMBURGER MENU KNOP*/}
           </button>
           {isSidebarVisible && (
             <div className={styles.sidebar}>
-              <div className={styles.sidebarHeader}>
-                <div className={styles.profile}>
-                  <div className={styles.profileIcon}>CL</div>
-                  <div>
-                    <h3>Codinglab</h3>
-                    <span>Web developer</span>
-                  </div>
-                </div>
-              </div>
+              <div className={styles.sidebarHeader}></div>
 
               <ul className={styles.sidebarMenu}>
                 <li className={styles.menuItem}>
-                  Dashboard
-                </li>
-                <li className={`${styles.menuItem} ${styles.active}`}>
-                  Economy
+                  <a href="/">Dashboard</a>
                 </li>
                 <li className={styles.menuItem}>
-                 Reports
+                  <a href="economy.tsx">Economy</a>
                 </li>
                 <li className={styles.menuItem}>
-                  Login
+                  <a href="/">Reports</a>
+                </li>
+                <li className={styles.menuItem}>
+                  <a href="/">login</a>
                 </li>
               </ul>
-
-              <div className={styles.sidebarFooter}>
-                <button className={styles.logoutButton}>Logout</button>
-                <div className={styles.darkModeToggle}>
-                  <span>🌙</span>
-                  <input type="checkbox" />
-                </div>
-              </div>
             </div>
           )}
           <span className={styles.title}>Dashboard</span>
