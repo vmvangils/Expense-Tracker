@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import styles from "./Economy.module.css";
-
+import styles from "./economy.module.css";
 
 const Economy: React.FC = () => {
   const [income, setIncome] = useState<number>(0);
+  const [costs, setCosts] = useState<number>(0);
+
   const handleIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIncome(Number(e.target.value));
   };
