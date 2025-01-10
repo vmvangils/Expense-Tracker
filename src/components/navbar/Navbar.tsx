@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
                   <a href="/">Dashboard</a>
                 </li>
                 <li className={styles.menuItem}>
-                  <a href="economy.tsx">Economy</a>
+                  <a href="./components/economy/economy">Economy</a>
                 </li>
                 <li className={styles.menuItem}>
                   <a href="/">Reports</a>
