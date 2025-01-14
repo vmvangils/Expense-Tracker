@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar: React.FC = () => {
@@ -24,16 +25,16 @@ const Navbar: React.FC = () => {
 
               <ul className={styles.sidebarMenu}>
                 <li className={styles.menuItem}>
-                  <a href="/">Dashboard</a>
+                  <Link to="/">Dashboard</Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <a href="./components/economy/economy">Economy</a>
+                  <Link to="./components/economy/Economy">Economy</Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <a href="/">Reports</a>
+                  <Link to="/reports">Reports</Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <a href="/">login</a>
+                  <Link to="/login">Login</Link>
                 </li>
               </ul>
             </div>
