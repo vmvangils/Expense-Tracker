@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./economy.module.css";
 
+
 const Economy: React.FC = () => {
   const [income, setIncome] = useState<number>(0);
   const [costs, setCosts] = useState<number>(0);
@@ -43,3 +44,5 @@ const Economy: React.FC = () => {
 };
 
 export default Economy;
+
+

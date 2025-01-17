@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
                   <Link to="/">Dashboard</Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <Link to="./components/economy/Economy">Economy</Link>
+                  <Link to="/economy">Economy</Link>
                 </li>
                 <li className={styles.menuItem}>
                   <Link to="/reports">Reports</Link>

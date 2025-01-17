@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
-import Economy from "./components/economy/Economy";
+import Navbar from "@/components/navbar/Navbar"; // Using alias
+import Economy from "@/components/economy/economy"; // Using alias
 
 function App() {
   return (
