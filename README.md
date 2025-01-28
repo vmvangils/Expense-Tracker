@@ -4,7 +4,7 @@ Made by: Vasco van Gils en Jacky Gao
 
 Inlever Datum: 31-01-2025
 
-[![React][React.js]][React-url]
+[![React][React.js][React-url]
 
 
 <a href="https://github.com/vmvangils/expense-tracker/graphs/contributors">
