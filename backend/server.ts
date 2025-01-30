@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import mysql, { Connection, QueryError } from 'mysql';
+import mysql, { Connection } from 'mysql';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
@@ -18,7 +18,7 @@ const db: Connection = mysql.createConnection({
   database: 'your_database_name', // replace with your database name
 });
 
-db.connect((err: QueryError | null) => {
+db.connect((err) => {
   if (err) {
     throw err;
   }
@@ -37,7 +37,7 @@ interface EconomyData {
 app.post('/api/economy', (req: Request, res: Response) => {
   const { category, amount } = req.body;
   const sql = 'INSERT INTO economy (category, amount) VALUES (?, ?)';
-  db.query(sql, [category, amount], (err: QueryError | null, result: any) => {
+  db.query(sql, [category, amount], (err, result) => {
     if (err) {
       return res.status(500).send(err);
     }
@@ -45,10 +45,10 @@ app.post('/api/economy', (req: Request, res: Response) => {
   });
 });
 
-// API Endpoint to Fetch Data (Step 1)
+// API Endpoint to Fetch Data
 app.get('/api/economy', (req: Request, res: Response) => {
   const sql = 'SELECT * FROM economy';
-  db.query(sql, (err: QueryError | null, results: EconomyData[]) => {
+  db.query(sql, (err, results: EconomyData[]) => {
     if (err) {
       return res.status(500).send(err);
     }
