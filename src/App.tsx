@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Navbar from "./components/navbar/Navbar";
 import Economy from "./components/economy/economy"; 
 import Dashboard from "./components/dashboard/dashboard";
+import Login from "./components/Authentication/login.tsx";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} /> {/* Replace with your Dashboard component */}
           <Route path="/economy" element={<Economy />} />
           <Route path="/reports" element={<div>Reports Page</div>} /> {/* Replace with your Reports component */}
-          <Route path="/login" element={<div>Login Page</div>} /> {/* Replace with your Login component */}
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>
