@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './economy.module.css';
+import styles from './report.module.css';
 
 const Economy: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('groceries');
