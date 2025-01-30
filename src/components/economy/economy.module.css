@@ -1,112 +1,33 @@
-/* economy.module.css - Fully Styled Version */
-
-/* General container styling */
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
-  color: black;
-  padding: 50px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  margin: 60px auto;
-  transition: transform 0.3s ease-in-out;
-}
-
-.container:hover {
-  transform: scale(1.02);
-}
-
-/* Title styling */
-.title {
-  font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 25px;
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+  width: 100vw; 
   text-align: center;
-  color: #222;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Form group layout */
 .formGroup {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  margin-bottom: 25px;
+  margin: 10px 0;
 }
 
-.label {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #444;
+.input, .select {
+  padding: 8px;
+  width: 200px;
+  font-size: 16px;
 }
 
-/* Select dropdown styling */
-.select, .input {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  border: 2px solid black;
-  border-radius: 10px;
-  background-color: white;
-  color: black;
-  outline: none;
-  transition: all 0.3s ease-in-out;
-}
-
-.select:hover, .input:hover {
-  border-color: #666;
-}
-
-.select:focus, .input:focus {
-  border-color: #222;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Button styling */
 .button {
-  width: 100%;
-  padding: 15px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  background: linear-gradient(to right, black, #444);
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3f51b5;
   color: white;
   border: none;
-  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
 }
 
 .button:hover {
-  background: linear-gradient(to right, #444, black);
-  transform: scale(1.05);
-}
-
-/* Responsive adjustments */
-@media (max-width: 700px) {
-  .container {
-    max-width: 95%;
-    padding: 30px;
-  }
-}
-
-@media (max-width: 500px) {
-  .title {
-    font-size: 28px;
-  }
-  .label {
-    font-size: 18px;
-  }
-  .button {
-    font-size: 18px;
-  }
+  background-color: #303f9f;
 }
