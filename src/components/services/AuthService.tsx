@@ -1,42 +1,24 @@
 import axios from "axios";
 
 export class AuthService {
-    // Define the base API URL (Replace this with your actual backend URL)
-    private static apiUrl = "http://localhost:5000";
+    private static apiUrl = "http://localhost:5000/api/auth"; // ✅ Added `/api/auth`
 
-    /**
-     * Sends a login request to the backend.
-     * @param email - User's email address
-     * @param password - User's password
-     * @returns A promise with success status, JWT token (if successful), or an error message.
-     */
     static async login(
         email: string,
         password: string
     ): Promise<{ success: boolean; token?: string; error?: string }> {
         try {
-            // Make a POST request to the login API endpoint
             const response = await axios.post(`${this.apiUrl}/login`, { email, password });
 
-            // Return success and store the JWT token
-            return { success: true, token: response.data.token };
+            return { success: true, token: response.data.token }; // ✅ Ensure token is returned
         } catch (error: any) {
-            // Handle any errors (e.g., incorrect credentials, server issues)
             return {
                 success: false,
-                error: error.response?.data?.message || "An error occurred during login.",
+                error: error.response?.data?.message || "Login failed.",
             };
         }
     }
 
-    /**
-     * Sends a registration request to the backend.
-     * @param name - User's full name
-     * @param email - User's email address
-     * @param password - User's password
-     * @param phoneNumber - User's phone number
-     * @returns A promise with success status, success message, or an error message.
-     */
     static async register(
         name: string,
         email: string,
@@ -44,21 +26,13 @@ export class AuthService {
         phoneNumber: string
     ): Promise<{ success: boolean; message?: string; error?: string }> {
         try {
-            // Make a POST request to the register API endpoint
-            const response = await axios.post(`${this.apiUrl}/register`, {
-                name,
-                email,
-                password,
-                phoneNumber,
-            });
+            const response = await axios.post(`${this.apiUrl}/register`, { name, email, password, phoneNumber });
 
-            // Return success status with the message
             return { success: true, message: response.data.message };
         } catch (error: any) {
-            // Handle errors (e.g., duplicate email, invalid data)
             return {
                 success: false,
-                error: error.response?.data?.message || "An error occurred during registration.",
+                error: error.response?.data?.message || "Registration failed.",
             };
         }
     }

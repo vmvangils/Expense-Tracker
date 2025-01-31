@@ -21,8 +21,8 @@ const Login: React.FC = () => {
 
         const response = await AuthService.login(email, password);
 
-        if (response.success && response.token) {
-            AuthService.saveToken(response.token);
+        if (response.success) {
+            AuthService.saveToken(response.token || ""); // ✅ Save token if using JWT
             setMessage("Login successful! Redirecting...");
             setTimeout(() => {
                 window.location.href = "/dashboard";
