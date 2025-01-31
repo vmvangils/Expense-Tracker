@@ -1,0 +1,132 @@
+/* General container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+    color: black;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 60px auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Auth Box */
+.authBox {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Title styling */
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #222;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form layout */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input container */
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* Input fields */
+.input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.input:hover {
+    border-color: #666;
+}
+
+.input:focus {
+    border-color: #222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Button styling */
+.button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(to right, black, #444);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background: linear-gradient(to right, #444, black);
+    transform: scale(1.05);
+}
+
+/* Toggle Button */
+.toggleButton {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.toggleButton:hover {
+    color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .title {
+        font-size: 24px;
+    }
+    .label {
+        font-size: 16px;
+    }
+    .button {
+        font-size: 16px;
+    }
+}

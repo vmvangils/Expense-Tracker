@@ -1,6 +1,24 @@
 <?php
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+'driver'    => 'mysql',
+'host'      => '127.0.0.1',
+'database'  => 'expense_tracker',
+'username'  => 'root',
+'password'  => '',
+'charset'   => 'utf8',
+'collation' => 'utf8_unicode_ci',
+'prefix'    => '',
+]);
+
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
 $host = '127.0.0.1';
-$db   = 'expense-tracker';
+$db   = 'expense_tracker';
 $user = 'root'; 
 $pass = '';     
 $charset = 'utf8mb4';
@@ -18,3 +36,4 @@ try {
     exit();
 }
 ?>
+
