@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import economyRoutes from "./routes/economyRoutes";
+import economyRoutes from "./routes/expenditureRoutes";
 import authRoutes from "./routes/authRoutes";
 import "./database"; // Ensure DB connects on startup
 

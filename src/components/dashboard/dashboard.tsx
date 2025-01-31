@@ -1,61 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import styles from './dashboard.module.css';
-
-interface EconomyData {
-  id: number;
-  category: string;
-  amount: number;
-  created_at: string; // Assuming your table has a timestamp column
-}
+import React, { useEffect, useState } from "react";
+import styles from "./dashboard.module.css";
 
 const Dashboard: React.FC = () => {
-  const [data, setData] = useState<EconomyData[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [balance, setBalance] = useState<number>(0);
+  const walletId = localStorage.getItem("walletId");
 
-  // Fetch data from the backend
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/api/economy');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        setError(error instanceof Error ? error.message : 'An error occurred');
-      } finally {
-        setLoading(false);
-      }
-    };
+    if (!walletId) return;
 
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <div className={styles.loading}>Loading...</div>;
-  }
-
-  if (error) {
-    return <div className={styles.error}>Error: {error}</div>;
-  }
+    fetch(`http://localhost:5000/api/wallet/${walletId}`)
+        .then((res) => res.json())
+        .then((data) => setBalance(data.balance))
+        .catch(() => setBalance(0));
+  }, [walletId]);
 
   return (
-    <div className={styles.dashboard}>
-      <h1 className={styles.title}>Economy Dashboard</h1>
-      <div className={styles.grid}>
-        {data.map((item) => (
-          <div key={item.id} className={styles.card}>
-            <h3 className={styles.cardTitle}>{item.category}</h3>
-            <p className={styles.cardAmount}>Amount: ${item.amount.toFixed(2)}</p>
-            <p className={styles.cardDate}>
-              Date: {new Date(item.created_at).toLocaleDateString()}
-            </p>
-          </div>
-        ))}
+      <div className={styles.dashboard}>
+        <h1>Dashboard</h1>
+        <h2>Wallet Balance: €{balance.toFixed(2)}</h2>
       </div>
-    </div>
   );
 };
 
