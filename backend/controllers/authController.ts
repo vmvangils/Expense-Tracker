@@ -6,7 +6,10 @@ export const registerUser = (req: Request, res: Response) => {
     const { name, email, password, phoneNumber } = req.body;
 
     db.query("SELECT * FROM Account WHERE Email = ?", [email], (err, results) => {
-        if (err) return res.status(500).json({ message: "Database error" });
+        if (err) {
+            console.error("❌ Database error:", err); // ✅ Log the exact error
+            return res.status(500).json({ message: "Database error" });
+        }
 
         if (results.length > 0) {
             return res.status(400).json({ message: "Email already exists" });
@@ -14,7 +17,10 @@ export const registerUser = (req: Request, res: Response) => {
 
         const sql = "INSERT INTO Account (Name, Email, Password, PhoneNumber) VALUES (?, ?, ?, ?)";
         db.query(sql, [name, email, password, phoneNumber], (err) => {
-            if (err) return res.status(500).json({ message: "Registration failed." });
+            if (err) {
+                console.error("❌ Insert error:", err); // ✅ Log the error
+                return res.status(500).json({ message: "Registration failed. Check server logs." });
+            }
 
             return res.status(201).json({ success: true, message: "User registered successfully!" });
         });
