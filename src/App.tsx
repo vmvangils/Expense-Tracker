@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Navbar from "./components/navbar/Navbar";
 import Economy from "./components/economy/economy"; 
 import Dashboard from "./components/dashboard/dashboard";
-import Login from "./components/authentication/login";
+import Login from "./components/Authentication/login";
 import Report from "./components/report/report"
 
 function App() {

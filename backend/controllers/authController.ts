@@ -1,8 +1,5 @@
 import { Request, Response } from "express";
 import db from "../database";
-import jwt from "jsonwebtoken";
-
-const SECRET_KEY = "your_secret_key";
 
 // Register a new user
 export const registerUser = (req: Request, res: Response) => {
@@ -10,7 +7,7 @@ export const registerUser = (req: Request, res: Response) => {
 
     db.query("SELECT * FROM Account WHERE Email = ?", [email], (err, results) => {
         if (err) {
-            console.error("❌ Database error:", err);
+            console.error("❌ Database error:", err); // ✅ Log the exact error
             return res.status(500).json({ message: "Database error" });
         }
 
@@ -21,7 +18,7 @@ export const registerUser = (req: Request, res: Response) => {
         const sql = "INSERT INTO Account (Name, Email, Password, PhoneNumber) VALUES (?, ?, ?, ?)";
         db.query(sql, [name, email, password, phoneNumber], (err) => {
             if (err) {
-                console.error("❌ Insert error:", err);
+                console.error("❌ Insert error:", err); // ✅ Log the error
                 return res.status(500).json({ message: "Registration failed. Check server logs." });
             }
 
@@ -47,17 +44,10 @@ export const loginUser = (req: Request, res: Response) => {
             return res.status(401).json({ message: "Invalid email or password" });
         }
 
-        // Generate JWT token
-        const token = jwt.sign({ id: user.idAccount, name: user.Name, email: user.Email }, SECRET_KEY, { expiresIn: "1h" });
+        // If using JWT (Recommended)
+        // const token = jwt.sign({ id: user.id }, "secret", { expiresIn: "1h" });
+        // return res.json({ success: true, token });
 
-        return res.json({ success: true, token });
+        return res.json({ success: true }); // ✅ Simplified if no JWT yet
     });
-};
-
-// Fetch user details (Protected Route)
-export const getUser = (req: Request, res: Response) => {
-    const user = (req as any).user;
-    if (!user) return res.status(403).json({ message: "Unauthorized" });
-
-    return res.json({ success: true, user });
 };

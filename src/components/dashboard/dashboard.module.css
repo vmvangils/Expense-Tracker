@@ -1,163 +1,59 @@
-/* 🔹 Main Container */
-.dashboardContainer {
-  display: grid;
-  grid-template-columns: 250px auto;
-  min-height: 100vh;
-  background-color: #f9f9f9;
-}
-
-/* 🔹 Sidebar Navigation */
-.sidebar {
-  background-color: #5c3c3c;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-}
-
-.sidebar h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  background: #3e2723;
-  padding: 15px;
-  margin: 10px 0;
-  text-align: center;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.sidebar li:hover {
-  background: #6d4c41;
-}
-
-/* 🔹 Main Content */
-.mainContent {
-  padding: 30px;
-}
-
-/* 🔹 Dashboard Title */
-.title {
-  text-align: center;
-  color: #333;
-  margin-bottom: 2rem;
-}
-
-/* 🔹 Grid Layout */
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-/* 🔹 Wallet Balance */
-.walletSection {
-  background: #6d4c41;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-  font-size: 1.5rem;
-}
-
-/* 🔹 Expense Form */
-.expenseSection {
-  background: #8d6e63;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.expenseSection input {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-}
-
-.expenseSection button {
-  background: #4e342e;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-.expenseSection button:hover {
-  background: #3e2723;
-}
-
-/* 🔹 Wallet History */
-.walletHistory {
-  grid-column: span 2;
-  background: #3e2723;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.walletHistory ul {
-  list-style: none;
-  padding: 0;
-}
-
-.walletHistory li {
-  padding: 10px;
-  border-bottom: 1px solid #795548;
-}
-
-/* 🔹 Existing Cards Styling */
-.card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.cardTitle {
-  font-size: 1.25rem;
-  color: #333;
-  margin-bottom: 0.75rem;
-}
-
-.cardAmount {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 0.5rem;
-}
-
-.cardDate {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* 🔹 Loading & Error Messages */
-.loading,
-.error {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 2rem;
-}
-
-.error {
-  color: #ff4d4f;
-}
+.dashboard {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  .title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cardTitle {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+  }
+  
+  .cardAmount {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cardDate {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .loading,
+  .error {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  .error {
+    color: #ff4d4f;
+  }
