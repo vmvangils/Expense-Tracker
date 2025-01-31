@@ -1,8 +1,9 @@
 import axios from "axios";
 
 export class AuthService {
-    private static apiUrl = "http://localhost:5000/api/auth"; // ✅ Added `/api/auth`
+    private static apiUrl = "http://localhost:5000/api/auth"; // ✅ API Base URL
 
+    // ✅ User Login
     static async login(
         email: string,
         password: string
@@ -10,7 +11,8 @@ export class AuthService {
         try {
             const response = await axios.post(`${this.apiUrl}/login`, { email, password });
 
-            return { success: true, token: response.data.token }; // ✅ Ensure token is returned
+            this.saveToken(response.data.token); // ✅ Store Token
+            return { success: true, token: response.data.token };
         } catch (error: any) {
             return {
                 success: false,
@@ -19,6 +21,7 @@ export class AuthService {
         }
     }
 
+    // ✅ User Registration
     static async register(
         name: string,
         email: string,
@@ -37,57 +40,56 @@ export class AuthService {
         }
     }
 
-    /**
-     * Saves the JWT token in the browser's local storage.
-     * @param token - JWT authentication token received from the backend
-     */
+    // ✅ Fetch User Details (Requires JWT Token)
+    static async getUser(): Promise<{ success: boolean; user?: any; error?: string }> {
+        try {
+            const token = this.getToken();
+            if (!token) return { success: false, error: "No token found" };
+
+            const response = await axios.get(`${this.apiUrl}/user`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            return { success: true, user: response.data.user };
+        } catch (error) {
+            return { success: false, error: "Failed to fetch user data" };
+        }
+    }
+
+    // ✅ Save JWT Token in Local Storage
     static saveToken(token: string): void {
         localStorage.setItem("authToken", token);
     }
 
-    /**
-     * Retrieves the JWT token from the browser's local storage.
-     * @returns The stored JWT token or null if not found.
-     */
+    // ✅ Get Token from Local Storage
     static getToken(): string | null {
         return localStorage.getItem("authToken");
     }
 
-    /**
-     * Removes the JWT token from local storage, effectively logging the user out.
-     */
+    // ✅ Logout (Remove Token & Redirect)
     static logout(): void {
         localStorage.removeItem("authToken");
+        window.location.href = "/login"; // Redirect to login page
     }
 
-    /**
-     * Checks if a user is authenticated by verifying if a valid token exists.
-     * @returns Boolean indicating whether the user is authenticated.
-     */
+    // ✅ Check if User is Authenticated
     static isAuthenticated(): boolean {
-        const token = this.getToken();
-        return token !== null; // If token exists, user is considered logged in
+        return this.getToken() !== null;
     }
 
-    /**
-     * Validates the JWT token by sending it to the backend.
-     * Useful for verifying if the token is still valid and not expired.
-     * @returns A promise resolving to a boolean indicating token validity.
-     */
+    // ✅ Validate Token with Server
     static async validateToken(): Promise<boolean> {
         try {
             const token = this.getToken();
             if (!token) return false;
 
-            // Send a request to the backend to validate the token
             await axios.get(`${this.apiUrl}/validate-token`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
-            return true; // If request succeeds, token is valid
+            return true; // Token is valid
         } catch (error) {
-            // If validation fails (e.g., token expired), return false
-            this.logout(); // Remove the invalid token
+            this.logout(); // Remove invalid token
             return false;
         }
     }
